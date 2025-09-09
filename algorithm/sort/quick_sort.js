@@ -1,3 +1,15 @@
+const arr = [10, 7, 8, 9, 1, 5];
+console.log("Unsorted array:", arr);
+quickSort(arr);
+console.log("Sorted array:", arr);
+
+function _quickSort(arr, start, end) {
+  if (start >= end) return;
+  const boundary = partition(arr, start, end);
+  _quickSort(arr, start, boundary - 1);
+  _quickSort(arr, boundary + 1, end);
+}
+
 function partition(arr, start, end) {
   let boundary = start - 1;
   const pivot = arr[end];
@@ -10,18 +22,6 @@ function partition(arr, start, end) {
   return boundary;
 }
 
-function quickSort(arr, start, end) {
-  if (start >= end) return;
-  const boundary = partition(arr, start, end);
-  quickSort(arr, start, boundary - 1);
-  quickSort(arr, boundary + 1, end);
+export function quickSort(arr) {
+  _quickSort(arr, 0, arr.length - 1);
 }
-
-function main() {
-  const arr = [10, 7, 8, 9, 1, 5];
-  console.log("Unsorted array:", arr);
-  quickSort(arr, 0, arr.length - 1);
-  console.log("Sorted array:", arr);
-}
-
-main();
