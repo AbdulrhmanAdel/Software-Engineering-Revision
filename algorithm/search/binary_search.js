@@ -1,10 +1,10 @@
 console.log(binarySearch([1, 5, 8, 10, 15, 60, 75, 100, 500], 3));
 
-function binarySearch(arr, searchFor) {
+export function binarySearch(arr, searchFor) {
   return _binarySearch(arr, searchFor, 0, arr.length - 1);
 }
 
-function _binarySearch(arr, searchFor, left, right) {
+export function _binarySearch(arr, searchFor, left, right) {
   if (left > right) {
     return -1;
   }
